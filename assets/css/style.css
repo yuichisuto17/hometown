@@ -8,16 +8,26 @@
     background-size: cover;
     background-repeat: repeat;
 }
-header {
+.header {
     height: 6vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 70px;
 }
-.logo {
-    height: 50px;
-}
+
+
+.button {
+    display      : inline-block;
+    border-radius: 50%;                  /* 角丸 */
+    box-shadow   : 6px 6px 3px #666666;  /* 影の設定 */
+    cursor       : pointer;              /* カーソル形状 */
+    transition   : .3s;                  /* なめらか変化 */
+  }
+  .button:hover {
+    box-shadow   : none;                 /* 影の設定 */
+    border-radius: 0;                    /* 角丸 */
+  }
 li {
     font-size: 20px;
     float: left;
