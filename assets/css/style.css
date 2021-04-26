@@ -4,10 +4,45 @@
 .top-page {
     height: 100vh;
     width: 100vw;
-    background-image: url(../img/e280b13d.jpg);
+    background-image: url(../img/hill.jpg);
     background-size: cover;
     background-repeat: repeat;
 }
+.slide {
+    position   : relative;
+    overflow   : hidden;
+                      /* 画像のサイズに合わせて変更ください */
+    width      : 300px;
+    height     : 300px;
+    margin     : auto;      /* サンプルは中央寄せの背景：白 */
+    background : #fff;
+  }
+   
+   /*=== 画像の設定 ======================================= */
+  .slide img {
+    display    : block;
+    position   : absolute;
+                        /* 画像のサイズを表示エリアに合せる */
+    width      : inherit;
+    height     : inherit;
+    opacity    : 0;
+    animation  : slideAnime 15s ease infinite;
+  }
+   
+   /*=== スライドのアニメーションを段差で開始する ========= */
+  .slide img:nth-of-type(1) { animation-delay: 0s }
+  .slide img:nth-of-type(2) { animation-delay: 5s }
+  .slide img:nth-of-type(3) { animation-delay: 10s }
+   
+   /*=== スライドのアニメーション ========================= */
+  @keyframes slideAnime{
+     0% { opacity: 0 }
+     16% { opacity: 1 }
+    17% { opacity: 1 }
+    33% { opacity: 0 }
+   100% { opacity: 0 }
+  }
+
 .header {
     height: 6vh;
     display: flex;
@@ -15,23 +50,23 @@
     justify-content: space-between;
     padding: 20px 70px;
 }
+.logo {
+    height: 70px;
+}
 
-
-.button {
-    display      : inline-block;
-    border-radius: 50%;                  /* 角丸 */
-    box-shadow   : 6px 6px 3px #666666;  /* 影の設定 */
-    cursor       : pointer;              /* カーソル形状 */
-    transition   : .3s;                  /* なめらか変化 */
-  }
-  .button:hover {
-    box-shadow   : none;                 /* 影の設定 */
-    border-radius: 0;                    /* 角丸 */
-  }
-li {
+.nav {
+    display: flex;
+}
+.nav > li > a {
+    color: blue;
     font-size: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+li {
+    font-size: 10px;
     float: left;
-    margin-left: 60px;
+    margin-left: 50px;
     color: blue;
 }
 a {
@@ -39,20 +74,20 @@ a {
     color: blue;
 }
 .main-visual {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 main-visual h1 {
-    font-size: 120px;
-    color: blue;
+    font-size: 80px;
+    color:green;
     text-align: center;
 }
 .main-visual p {
     font-size: 26px;
-    color: white;
+    color: red;
     width: 80%;
     margin-top: 30px;
     text-align: center;
@@ -75,6 +110,7 @@ p {
     justify-content: space-between;
     align-items: center;
     margin-top: 70px;
+    flex-direction: column;
 }
 .contents-left img{
     height: 300px;
@@ -86,10 +122,11 @@ p {
     margin-bottom: 30px;
 }
 .cards {
-    margin-top: 60px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .card {
     border: 1px solid ;
@@ -123,14 +160,23 @@ textarea {
     width: 40%;
 }
 button {
-    width: 140px;
-    font-size: 23px;
-    padding: 7px;
-    height: 60px;
-    background-color: #223644;
-    margin-top: 26px;
-    cursor: pointer;
-    color: white;
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 11px 12px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #1a1aff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #ffffff;    /* 枠の指定 */
+  }
+  .button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    background    : #1a1aff;     /* 文字色     */
 }
 footer {
     text-align: center;
@@ -139,4 +185,83 @@ footer {
 }
 footer p {
     color: white;
+}
+
+.hamburger, .btn {
+    display: none;
+}
+
+@media screen and (max-width:780px) {
+    .title {
+        font-size: 20px;
+    }
+    .guideline {
+        font-size: 24px;
+    }
+    .welcome {
+        height: 50vh;
+    }
+    .contents {
+        flex-direction: column-reverse;
+    }
+@media screen and ( max-width:479px )
+{
+    p {
+        color: #f00 ;	/* 赤色 */   
+    }
+}
+       
+
+.nav {
+    display: none;
+    }
+
+.btn {
+    position: relative;
+    display: block;
+    height: 50px;
+    width: 35px;
+    cursor: pointer;
+    }
+.icon, .icon::before, .icon::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 2px;
+    width: 35px;
+    background-color: blue;
+    display: block;
+    content: '';
+    transition: all 1s;
+    }
+.icon::before {
+    top: -25px;
+    }
+.icon::after {
+    top: 25px;
+    }
+
+.hamburger:checked ~ .btn .icon {
+    background-color: transparent;
+    }
+.hamburger:checked ~ .btn .icon::before {
+    transform: rotate(-45deg);
+    top: 0;
+    }
+.hamburger:checked ~ .btn .icon::after {
+    transform: rotate(45deg);
+    top: 0;
+    }
+.hamburger:checked ~ .nav {
+    display: flex;
+    }
+.menu {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    align-items: center;
+    }
 }
